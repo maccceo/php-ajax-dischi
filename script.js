@@ -1,51 +1,52 @@
 
 $(document).ready(function() {
 	
+	//carica tutti gli album
 	$.ajax({
 		url: "API.php",
 		method: "GET",
 		success: function(data) {
-			console.log(data);
-			var destinazione = $("#api");
-
-			for (var i = 0; i < data.length; i++) {
-				var album = data[i];
-				var stampa =
-					"<div class='apiAlbum'>" +
-						"<h2>" + album.name + "</h2>" +
-						"<h3>" + album.artist + "</h3>" +
-						'<p>' + album.year + ", " + album.genre + "</p>" +
-						'<img src="' + album.cover + '">' +
-					"</div>";
-				//aggiungo album all'HTML
-				destinazione.append(stampa);
-			}
+			printAlbums(data);
 		}
 	});
+
+	//filtro per artista
+	$("#go").click(filterByArtist);
 
 });
 
 
-// function research() {
-// 	var park = $("#park").is(":checked");
-// 	var vote = $("#vote").val();
-// 	var maxdistance = $("#maxdistance").val();
+function printAlbums(data) {
+	console.log(data);
+	var destinazione = $("#api");
 
-// 	console.log(park, vote, maxdistance);
+	//cancello tutti gli album inseriti prima (if present)
+	$(".apiAlbum").remove();
 
-// 	var preferences = {
-// 		parking: park,
-// 		vote: vote,
-// 		distance_to_center: maxdistance
-// 	}
+	//stampo ad uno ad uno gli album
+	for (var i = 0; i < data.length; i++) {
+		var album = data[i];
+		var stampa =
+			"<div class='apiAlbum'>" +
+				"<h2>" + album.name + "</h2>" +
+				"<h3>" + album.artist + "</h3>" +
+				'<p>' + album.year + ", " + album.genre + "</p>" +
+				'<img src="' + album.cover + '">' +
+			"</div>";
+		//aggiungo album all'HTML
+		destinazione.append(stampa);
+	}
+}
 
-// 	$.ajax({
-// 		url: "database.php",
-// 		method: "GET",
-// 		data: preferences,
-// 		success: function(data) {
-// 			console.log(data);
-			
-// 		}
-// 	});
-// }
+function filterByArtist() {
+	//prendo artista scelto, lo mando all'API
+	var artist = $("#artist").val();
+	$.ajax({
+		url: "API.php",
+		method: "GET",
+		data: {artist: artist},
+		success: function(data) {
+			printAlbums(data);
+		}
+	});
+}

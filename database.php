@@ -16,6 +16,13 @@
          'cover' => 'https://m.media-amazon.com/images/I/51O2XS+yQxL._AA256_.jpg'
         ],
         [
+         'name' => 'LONG.LIVE.A$AP',
+         'artist' => 'Asap Rocky',
+         'year' => '2014',
+         'genre' => 'rap',
+         'cover' => 'https://b3h2.scene7.com/is/image/BedBathandBeyond/103304847484993p?$imagePLP$&wid=256'
+        ],
+        [
          'name' => 'ZUU',
          'artist' => 'Denzel Curry',
          'year' => '2019',
