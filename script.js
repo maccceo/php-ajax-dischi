@@ -1,29 +1,27 @@
 
 $(document).ready(function() {
 	
-	// $.ajax({
-	// 	url: "database.php",
-	// 	method: "GET",
-	// 	success: function(data) {
-	// 		// console.log(data);
-	// 		// var destinazione = $("#main-container");
+	$.ajax({
+		url: "API.php",
+		method: "GET",
+		success: function(data) {
+			console.log(data);
+			var destinazione = $("#api");
 
-	// 		// for (var i = 0; i < data.length; i++) {
-	// 		// 	var hotel = data[i];
-	// 		// 	var stampa =
-	// 		// 		"<div class='hotel'>" +
-	// 		// 			"<h1>" + hotel.name + "</h1>" +
-	// 		// 			"<p>" + hotel.description + "</p>" +
-	// 		// 			"<p class='quickinfo'><strong>Parcheggio?</strong> " + hotel.parking + "</p>" +
-	// 		// 			"<p class='quickinfo'><strong>Voto:</strong> " + hotel.vote + "</p>" +
-	// 		// 			"<p class='quickinfo'><strong>Distanza dal centro:</strong> " + hotel.distance_to_center + "Km</p>" +
-	// 		// 		"</div>";
-	// 		// 	//aggiungo hotel all'HTML
-	// 		// 	destinazione.append(stampa);
-	// 	// 	}
-	// 	}
-	// });
-
+			for (var i = 0; i < data.length; i++) {
+				var album = data[i];
+				var stampa =
+					"<div class='apiAlbum'>" +
+						"<h2>" + album.name + "</h2>" +
+						"<h3>" + album.artist + "</h3>" +
+						'<p>' + album.year + ", " + album.genre + "</p>" +
+						'<img src="' + album.cover + '">' +
+					"</div>";
+				//aggiungo album all'HTML
+				destinazione.append(stampa);
+			}
+		}
+	});
 
 });
 
