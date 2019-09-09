@@ -1,7 +1,5 @@
 <?php 
 
-    header ('Content-type: application/json');
-
     $albums = [
         [
          'name' => 'TuttoVenditti',
@@ -39,9 +37,5 @@
          'cover' => 'https://pm1.narvii.com/6853/7fe5b2af2fe7d92ce8bf9327cd15c4a06c5f4629v2_128.jpg'
         ]
     ];
-
-    
-
-    echo json_encode($albums);
 
  ?>
