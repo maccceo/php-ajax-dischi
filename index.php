@@ -39,19 +39,7 @@
        </div>
        <hr>
        <h1>Aggiunti da API</h1>
-       <div id="api">
-         <select id="artist">
-           <option value="" disabled selected hidden>Filtra per artista</option>
-           <option value="Antonello Venditti">Antonello Venditti</option>
-           <option value="Asap Rocky">Asap Rocky</option>
-           <option value="Denzel Curry">Denzel Curry</option>
-           <option value="Vince Staples">Vince Staples</option>
-           <option value="Russ">Russ</option>
-           <option value="">- - Non filtrare - -</option>
-         </select>
-         <button id="go">Go</button>
-         <br>
-       </div>
+       <div id="api"></div>
     </div>
   </body>
 </html>
